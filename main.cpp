@@ -4,17 +4,28 @@
 int main(){
 Calculator calculator;
     initscr();                   
-		printw("Terminal Calculator\n");
 		
 		do {
 		calculator.setSymbol();
 		if (calculator.getSymbol() != 'e'){
 			if (calculator.getSymbol() != 'r' and calculator.getSymbol() != '!'){
-			calculator.setA();
-			calculator.setB();
+				if (calculator.res == 0){
+					calculator.setA();
+					calculator.setB();
+				}
+				else {
+					calculator.nextLoop();
+					calculator.setB();	
+				}
+			}
+			else if (calculator.getSymbol() == 'r'){
+				if (calculator.res == 0)
+					calculator.setA();
+				else
+					calculator.nextLoop();
 			}
 			else {
-			calculator.setC();
+				calculator.setC();
 			}
 			switch (calculator.getSymbol()) {
 				case '+':

@@ -9,13 +9,16 @@ class Calculator{
 		float a,b,c;
 		char s; //symbol
 	public:
-		float res;
+		int pos = 0;
+		float res = 0;
 		void setA();
 		void setB();
 		void setC();
 		void setSymbol();
 		char getSymbol();
 		void printResult();
+		void reset();
+		void nextLoop();
 
 		float sum();
 		float division();
